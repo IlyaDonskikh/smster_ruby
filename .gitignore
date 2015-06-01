@@ -11,6 +11,7 @@
 /config/*
 
 .rubocop.yml
+smster*.gem
 
 ## Specific to RubyMotion:
 .dat*
