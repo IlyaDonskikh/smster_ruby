@@ -1,8 +1,6 @@
-require 'minitest/autorun'
-require 'webmock/minitest'
-require 'smster'
+require './test/test_helper'
 
-class SmsterTest < Minitest::Test
+class SmsruTest < Minitest::Test
   def test_should_send
     stub_send_request
 
