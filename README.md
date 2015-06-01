@@ -11,7 +11,7 @@ Install gem:
 
 ```gem install smster_ruby```
 
-Add configuration folder and file ```config/smster.rb```:
+Add configuration folder and file ```config/initializers/smster.rb```:
 
 ```ruby
 Smster.configure do |config|
