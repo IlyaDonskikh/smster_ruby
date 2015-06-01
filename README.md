@@ -24,6 +24,8 @@ end
 Select a service provider and send you first message:
 
 ```ruby
+require 'smster'
+
 Sms::Smsru.send_sms(to: $phone, text: $text)
 ```
 
