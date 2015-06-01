@@ -12,6 +12,7 @@
 
 .rubocop.yml
 smster*.gem
+*.gemspec
 
 ## Specific to RubyMotion:
 .dat*
