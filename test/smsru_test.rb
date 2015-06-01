@@ -8,8 +8,7 @@ class SmsruTest < Minitest::Test
     phone = (99_999_999 * rand).to_s
     attrs = { to: phone, text: 'i am smster!' }
 
-    sms = Sms::Smsru.new(attrs)
-    sms.send_sms
+    sms = Sms::Smsru.send_sms(attrs)
 
     assert_equal @statuses[:sent], sms.status
   end

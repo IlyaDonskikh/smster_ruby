@@ -15,4 +15,4 @@ module Smster
   end
 end
 
-require './config/smster'
+require './config/initializers/smster'
