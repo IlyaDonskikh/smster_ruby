@@ -9,6 +9,6 @@ Gem::Specification.new do |s|
   s.description = "SMS sending service through different providers with maximum convenience."
   s.license     = "MIT"
 
-  s.files = Dir["lib/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{lib, config}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 end
