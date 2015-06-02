@@ -2,6 +2,7 @@ require 'rest_client'
 require 'smster/configuration'
 require 'smster/sms'
 require 'smster/sms/smsru'
+require 'smster/sms/nexmo'
 
 module Smster
   attr_accessor :configuration

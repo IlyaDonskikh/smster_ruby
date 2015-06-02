@@ -26,4 +26,13 @@ class Sms
 
     self
   end
+
+  private
+
+    def send_to_provider
+      modify_params
+
+      response = send_request
+      generate_send_resonse(response)
+    end
 end

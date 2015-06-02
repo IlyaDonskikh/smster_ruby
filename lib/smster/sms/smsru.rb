@@ -1,14 +1,11 @@
 class Sms::Smsru < Sms
   private
 
-    def send_to_provider
-      phone = to.gsub(/\D/, '')
-
-      response = send_request(text, phone)
-      generate_send_resonse(response)
+    def modify_params
+      self.to = to.gsub(/\D/, '')
     end
 
-    def send_request(text, phone)
+    def send_request
       config = Smster.configuration
       api_id = config.smsru_api_id
 
@@ -16,7 +13,7 @@ class Sms::Smsru < Sms
         'http://sms.ru/sms/send',
         'api_id' => api_id,
         'text' => text,
-        'to' => phone,
+        'to' => to,
         'from' => name
       )
     end
