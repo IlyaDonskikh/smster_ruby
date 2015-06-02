@@ -3,6 +3,7 @@ require 'smster/configuration'
 require 'smster/sms'
 require 'smster/sms/smsru'
 require 'smster/sms/nexmo'
+require 'smster/sms/clickatell'
 
 module Smster
   attr_accessor :configuration
