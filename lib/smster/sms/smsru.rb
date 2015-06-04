@@ -18,9 +18,9 @@ class Sms::Smsru < Sms
       )
     end
 
-    def generate_send_resonse(response)
+    def assign_attrs_by(response)
       return unless response.include?('100')
 
-      (/\n(.*)\n/).match(response)[1]
+      self.api_message_id = (/\n(.*)\n/).match(response)[1]
     end
 end

@@ -20,12 +20,10 @@ class Sms::Nexmo < Sms
       )
     end
 
-    def generate_send_resonse(response)
+    def assign_attrs_by(response)
       json_response = JSON.parse(response)
-      error_text = json_response['messages'][0]['error-text']
 
-      return if error_text
-
-      json_response['messages'][0]['message-id']
+      self.status_message = json_response['messages'][0]['error-text']
+      self.api_message_id = json_response['messages'][0]['message-id']
     end
 end

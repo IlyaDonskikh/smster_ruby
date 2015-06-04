@@ -1,6 +1,7 @@
 class Sms
-  attr_accessor :name,        :type,        :to,
-                :text,        :status,      :status_message
+  attr_accessor :name,        :type,        :api_message_id,
+                :text,        :status,      :status_message,
+                :to
 
   ## Codes
   STATUSES = { created: 0, sent: 1, delivered: 2, failed: 3 }
@@ -19,10 +20,10 @@ class Sms
   end
 
   def send_sms
-    api_message_id = send_to_provider
+    send_to_provider
 
-    self.status = STATUSES[:sent] if api_message_id
-    self.status ||= STATUSES[:failed]
+    status_name = api_message_id ? :sent : :failed
+    self.status = STATUSES[status_name]
 
     self
   end
@@ -33,6 +34,6 @@ class Sms
       modify_params
 
       response = send_request
-      generate_send_resonse(response)
+      assign_attrs_by(response)
     end
 end
