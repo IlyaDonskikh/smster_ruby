@@ -3,7 +3,10 @@
 
 SMS sending service through different providers with maximum convenience.
 
-Supported: [sms.ru](http://sms.ru/)
+Supported: 
+* [Smsru](http://sms.ru/)
+* [Nexmo](https://www.nexmo.com/)
+* [Clickatell](https://www.clickatell.com/)
 
 ## Setup
 
