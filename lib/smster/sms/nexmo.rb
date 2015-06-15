@@ -1,4 +1,4 @@
-class Sms::Nexmo < Sms
+class Sms::Nexmo < SmsLayer
   private
 
     def modify_params

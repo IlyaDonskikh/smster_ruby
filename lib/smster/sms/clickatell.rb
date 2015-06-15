@@ -1,4 +1,12 @@
-class Sms::Clickatell < Sms
+class Sms::Clickatell < SmsLayer
+  attr_accessor :unicode, :clickatell_auth_code
+
+  def clickatell_auth_code
+    config = Smster.configuration
+
+    @clickatell_auth_code = config.clickatell_authorization_code
+  end
+
   private
 
     def modify_params
@@ -7,10 +15,14 @@ class Sms::Clickatell < Sms
     end
 
     def send_request
-      code = Smster.configuration.clickatell_authorization_code
-      msg_params = { 'text' => text, 'to' => [to] }.to_json
+      msg_params = {
+        'text' => text,
+        'to' => [to],
+        'unicode' => unicode,
+        'from' => name
+      }.to_json
 
-      start_request(msg_params, code)
+      start_request(msg_params, clickatell_auth_code)
     end
 
     def start_request(params, code)

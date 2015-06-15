@@ -1,6 +1,7 @@
 require 'rest_client'
 require 'smster/configuration'
 require 'smster/sms'
+require 'smster/sms_layer'
 require 'smster/sms/smsru'
 require 'smster/sms/nexmo'
 require 'smster/sms/clickatell'
