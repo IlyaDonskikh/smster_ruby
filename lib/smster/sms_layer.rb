@@ -1,3 +1,5 @@
+## For compatibility with smster rails gem.
+
 class SmsLayer < Sms
   def send_sms
     send_to_provider
