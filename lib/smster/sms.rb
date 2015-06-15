@@ -1,7 +1,7 @@
 class Sms
   attr_accessor :name,        :type,        :api_message_id,
                 :text,        :status,      :status_message,
-                :to
+                :to,          :cost,        :balance
 
   ## Codes
   STATUSES = { created: 0, sent: 1, delivered: 2, failed: 3 }
