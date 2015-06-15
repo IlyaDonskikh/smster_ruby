@@ -28,27 +28,9 @@ class Sms::Smsru < Sms
 
       return unless response.include?('100')
 
-      self.balance = extract_balance_from(response)
-      self.api_message_id = extract_api_message_id_from(response)
-      self.cost = calc_cost
-    end
-
-    def extract_api_message_id_from(response)
-      id_reg = (/\n(.*)\n?/).match(response)
-
-      id_reg && id_reg[1]
-    end
-
-    def extract_balance_from(response)
-      balance_reg = (/.*\n.*\nbalance=(.*)/).match(response)
-
-      balance_reg && balance_reg[1]
-    end
-
-    def calc_cost
-      response = request_cost
-
-      extract_cost_from(response)
+      self.balance = extract_from(response, /.*\n.*\nbalance=(.*)/)
+      self.api_message_id = extract_from(response, /\n(.*)\n?/)
+      self.cost = extract_from(request_cost, /\n(.*)\n?/)
     end
 
     def request_cost
@@ -60,9 +42,9 @@ class Sms::Smsru < Sms
       )
     end
 
-    def extract_cost_from(response)
-      cost = (/\n(.*)\n?/).match(response)
+    def extract_from(response, regexp)
+      value = (regexp).match(response)
 
-      cost && cost[1]
+      value && value[1]
     end
 end
