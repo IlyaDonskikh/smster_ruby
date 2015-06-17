@@ -7,6 +7,10 @@ class Sms::Smsru < SmsLayer
     @smsru_api_id = config.smsru_api_id
   end
 
+  def calc_cost
+    extract_from(request_cost, /\n(.*)\n?/)
+  end
+
   private
 
     def modify_params
@@ -31,7 +35,6 @@ class Sms::Smsru < SmsLayer
 
       self.balance = extract_from(response, /.*\n.*\nbalance=(.*)/)
       self.api_message_id = extract_from(response, /\n(.*)\n?/)
-      self.cost = extract_from(request_cost, /\n(.*)\n?/)
     end
 
     def request_cost

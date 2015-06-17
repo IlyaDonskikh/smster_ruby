@@ -19,10 +19,10 @@ class SmsruTest < Minitest::Test
     assert_equal sms.balance, '52.54'
   end
 
-  def test_assign_cost
-    sms = Sms::Smsru.send_sms(to: @to, text: @text)
+  def test_calc_cost
+    sms = Sms::Smsru.new(to: @to, text: @text)
 
-    assert_equal sms.cost, '0.69'
+    assert_equal sms.calc_cost, '0.69'
   end
 
   def test_should_modify_to
