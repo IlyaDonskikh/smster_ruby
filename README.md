@@ -7,7 +7,7 @@ Supported:
 * [Clickatell](https://www.clickatell.com/)
 * [Nexmo](https://www.nexmo.com/)
 * [Smsru](http://sms.ru/)
-* [Sms Uslugi](http://sms-uslugi.ru/)
+* [SmsUslugi](http://sms-uslugi.ru/)
 
 ## Setup
 

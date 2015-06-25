@@ -1,9 +1,5 @@
 class Sms::Clickatell < SmsLayer
-  attr_accessor :unicode, :clickatell_auth_code
-
-  def clickatell_auth_code
-    @clickatell_auth_code = config.clickatell_authorization_code
-  end
+  attr_accessor :unicode
 
   private
 
@@ -20,7 +16,9 @@ class Sms::Clickatell < SmsLayer
         'from' => name
       }.to_json
 
-      start_request(msg_params, clickatell_auth_code)
+      code = config.clickatell_authorization_code
+
+      start_request(msg_params, code)
     end
 
     def start_request(params, code)
