@@ -9,19 +9,7 @@ class Sms::SmsUslugi < SmsLayer
     end
 
     def send_request
-      RestClient.post(
-        "#{base_url}/sendSms.php",
-        'login' => config.smsru_uslugi_login,
-        'password' => config.smsru_uslugi_pwd,
-        'txt' => text,
-        'to' => to,
-        'source' => name,
-        'onlydelivery' => onlydelivery,
-        'use_alfasource' => use_alfasource,
-        'flash' => flash,
-        'dateTimeSend' => date_time_send,
-        'discountID' => discount_id
-      )
+      RestClient.post("#{base_url}/sendSms.php", options)
     end
 
     def assign_attrs_by(response)
@@ -34,5 +22,36 @@ class Sms::SmsUslugi < SmsLayer
 
     def base_url
       'https://lcab.sms-uslugi.ru/lcabApi'
+    end
+
+    def options
+      opts = [auth_options, msg_options, additional_options]
+
+      opts.inject(&:merge)
+    end
+
+    def auth_options
+      {
+        login: config.smsru_uslugi_login,
+        password: config.smsru_uslugi_pwd
+      }
+    end
+
+    def msg_options
+      {
+        txt: text,
+        to: to,
+        source: name
+      }
+    end
+
+    def additional_options
+      {
+        onlydelivery: onlydelivery,
+        use_alfasource: use_alfasource,
+        flash: flash,
+        dateTimeSend: date_time_send,
+        discountID: discount_id
+      }
     end
 end

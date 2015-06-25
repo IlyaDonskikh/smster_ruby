@@ -7,6 +7,12 @@ class SmsUslugiTest < Minitest::Test
     assert_equal @statuses[:sent], sms.status
   end
 
+  def test_should_assign_cost
+    sms = Sms::SmsUslugi.send_sms(to: @to, text: @text)
+
+    assert_equal true, sms.cost.to_f > 0
+  end
+
   private
 
     def stub_send_request
