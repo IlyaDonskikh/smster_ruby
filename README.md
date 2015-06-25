@@ -19,15 +19,19 @@ Add configuration folder and file ```config/initializers/smster.rb```:
 
 ```ruby
 Smster.configure do |config|
-  ## Smsru
-  config.smsru_api_id = API_KEY
+  ## Clickatell
+  config.clickatell_authorization_code = API_KEY
 
   ## Nexmo
   config.nexmo_key = API_KEY
   config.nexmo_sekret = API_SECRET
-
-  ## Clickatell
-  config.clickatell_authorization_code = API_KEY
+  
+  ## Smsru
+  config.smsru_api_id = API_KEY
+  
+  ## Sms Uslugi
+  config.smsru_uslugi_login = ''
+  config.smsru_uslugi_pwd = ''
 end
 ```
 
