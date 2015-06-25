@@ -2,8 +2,6 @@ class Sms::Smsru < SmsLayer
   attr_accessor :test, :smsru_api_id
 
   def smsru_api_id
-    config = Smster.configuration
-
     @smsru_api_id = config.smsru_api_id
   end
 

@@ -3,10 +3,11 @@
 
 SMS sending service through different providers with maximum convenience.
 
-Supported: 
-* [Smsru](http://sms.ru/)
-* [Nexmo](https://www.nexmo.com/)
+Supported:
 * [Clickatell](https://www.clickatell.com/)
+* [Nexmo](https://www.nexmo.com/)
+* [Smsru](http://sms.ru/)
+* [Sms Uslugi](http://sms-uslugi.ru/)
 
 ## Setup
 
@@ -20,7 +21,7 @@ Add configuration folder and file ```config/initializers/smster.rb```:
 Smster.configure do |config|
   ## Smsru
   config.smsru_api_id = API_KEY
-  
+
   ## Nexmo
   config.nexmo_key = API_KEY
   config.nexmo_sekret = API_SECRET

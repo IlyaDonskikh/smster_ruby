@@ -18,4 +18,8 @@ class SmsLayer < Sms
       response = send_request
       assign_attrs_by(response)
     end
+
+    def config
+      Smster.configuration
+    end
 end

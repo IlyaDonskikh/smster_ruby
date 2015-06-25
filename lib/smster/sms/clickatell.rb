@@ -2,8 +2,6 @@ class Sms::Clickatell < SmsLayer
   attr_accessor :unicode, :clickatell_auth_code
 
   def clickatell_auth_code
-    config = Smster.configuration
-
     @clickatell_auth_code = config.clickatell_authorization_code
   end
 

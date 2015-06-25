@@ -5,6 +5,7 @@ require 'smster/sms_layer'
 require 'smster/sms/smsru'
 require 'smster/sms/nexmo'
 require 'smster/sms/clickatell'
+require 'smster/sms/sms_uslugi'
 
 module Smster
   attr_accessor :configuration

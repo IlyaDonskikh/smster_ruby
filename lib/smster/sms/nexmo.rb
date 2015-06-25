@@ -7,8 +7,6 @@ class Sms::Nexmo < SmsLayer
     end
 
     def send_request
-      config = Smster.configuration
-
       RestClient.post(
         'https://rest.nexmo.com/sms/json',
         text: text,
