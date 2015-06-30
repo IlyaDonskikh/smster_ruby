@@ -9,7 +9,7 @@ Supported:
 * [Smsru](http://sms.ru/)
 * [SmsUslugi](http://sms-uslugi.ru/)
 
-## Use
+## Usage
 
 Install gem:
 
@@ -17,7 +17,7 @@ Install gem:
 
 Follow instruction: 
 
-https://github.com/IlyaDonskikh/smster_ruby/wiki.
+https://github.com/IlyaDonskikh/smster_ruby/wiki
 
 ## Preview
 
