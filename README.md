@@ -15,7 +15,9 @@ Install gem:
 
 ```gem install smster_ruby```
 
-Follow wiki instruction: https://github.com/IlyaDonskikh/smster_ruby/wiki.
+Follow instruction: 
+
+https://github.com/IlyaDonskikh/smster_ruby/wiki.
 
 ## Preview
 
