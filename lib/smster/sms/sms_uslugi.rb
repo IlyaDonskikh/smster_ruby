@@ -1,6 +1,15 @@
 class Sms::SmsUslugi < SmsLayer
   attr_accessor :onlydelivery,    :use_alfasource,      :flash,
-                :date_time_send,  :discount_id
+                :date_time_send,  :discount_id,         :sms_uslugi_login,
+                :sms_uslugi_pwd
+
+  def sms_uslugi_login
+    @sms_uslugi_login ||= config.sms_uslugi_login
+  end
+
+  def sms_uslugi_pwd
+    @sms_uslugi_pwd ||= config.sms_uslugi_pwd
+  end
 
   private
 
@@ -32,8 +41,8 @@ class Sms::SmsUslugi < SmsLayer
 
     def auth_options
       {
-        login: config.smsru_uslugi_login,
-        password: config.smsru_uslugi_pwd
+        login: sms_uslugi_login,
+        password: sms_uslugi_pwd
       }
     end
 

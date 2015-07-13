@@ -1,5 +1,9 @@
 class Sms::Clickatell < SmsLayer
-  attr_accessor :unicode
+  attr_accessor :unicode, :clickatell_key
+
+  def clickatell_key
+    @clickatell_key ||= config.clickatell_authorization_code
+  end
 
   private
 
@@ -16,19 +20,17 @@ class Sms::Clickatell < SmsLayer
         'from' => name
       }.to_json
 
-      code = config.clickatell_authorization_code
-
-      start_request(msg_params, code)
+      start_request(msg_params)
     end
 
-    def start_request(params, code)
+    def start_request(params)
       RestClient.post(
         'https://api.clickatell.com/rest/message',
         params,
         content_type: :json,
         accept: :json,
         'X-Version' => 1,
-        'Authorization' => "bearer #{code}"
+        'Authorization' => "bearer #{clickatell_key}"
       )
     rescue => e
       e.response
