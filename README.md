@@ -9,36 +9,33 @@ Supported:
 * [Smsru](http://sms.ru/)
 * [SmsUslugi](http://sms-uslugi.ru/)
 
-## Setup
+## Usage
 
 Install gem:
 
 ```gem install smster_ruby```
 
-Add configuration folder and file ```config/initializers/smster.rb```:
+Follow instruction: 
+
+https://github.com/IlyaDonskikh/smster_ruby/wiki
+
+## Preview
+
+Add configuration file ```config/initializers/smster.rb```:
 
 ```ruby
 Smster.configure do |config|
-  ## Smsru
-  config.smsru_api_id = API_KEY
-
-  ## Nexmo
-  config.nexmo_key = API_KEY
-  config.nexmo_sekret = API_SECRET
-
   ## Clickatell
   config.clickatell_authorization_code = API_KEY
 end
 ```
 
-## Sending message
-
-Select a service provider and send you first message:
+And send sms:
 
 ```ruby
 require 'smster'
 
-Sms::Smsru.send_sms(to: $phone, text: $text) # ::Nexmo, ::Clickatell
+Sms::Clickatell.send_sms(to: $phone, text: $text)
 ```
 
 ## Feedback
