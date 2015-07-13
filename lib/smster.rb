@@ -19,4 +19,4 @@ module Smster
   end
 end
 
-require './config/initializers/smster'
+Dir['./config/initializers/*.rb'].each { |file| require file }
